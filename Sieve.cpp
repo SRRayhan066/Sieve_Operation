@@ -5,13 +5,6 @@ const int N=1e7+10;
 
 vector<bool>marked(N,false);
 
-bool is_prime(int n){
-    if(n==2) return true;
-    else if(n%2==0) return false;
-    else if(n<2) return false;
-    else return marked[n]==false;
-}
-
 void seive(){
     for(int i=3;i*i<=N;i+=2){
         if(!marked[i]){
@@ -20,11 +13,12 @@ void seive(){
             }
         }
     }
+    puts("2");
+    for(int i=3;i<=N;i+=2) if(!marked[i]) cout<<i<<endl; 
 }
 
 int main(){
     fastio;
     seive();
-    for(int i=0;i<=100;i++) if(is_prime(i)) cout<<i<<endl;
     return 0;
 }
